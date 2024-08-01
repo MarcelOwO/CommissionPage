@@ -1,12 +1,37 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
-    <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
-        <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
-    </Found>
-    <NotFound>
-        <PageTitle>Not found</PageTitle>
-        <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
-        </LayoutView>
-    </NotFound>
-</Router>
+﻿<Blazorize.ThemeProvider Theme="@theme">
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
+            <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p role="alert">Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</Blazorize.ThemeProvider>
+
+
+@code {
+
+
+    private Theme theme = new Theme()
+    {
+        IsGradient = true,
+        IsRounded = true, Enabled = true,
+        BodyOptions = new ThemeBodyOptions()
+        {
+            BackgroundColor = "#dfe8fa",
+            TextColor = "#dfe8fa",
+        },
+
+
+        ColorOptions = new ThemeColorOptions() //Change to color on sona later
+        {
+            Primary = "#f1c288",
+        }
+    };
+
+}
