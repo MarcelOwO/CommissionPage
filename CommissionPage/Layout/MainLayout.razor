@@ -1,4 +1,56 @@
-﻿@inherits Microsoft.AspNetCore.Components.LayoutComponentBase
+﻿@using CommissionPage.wwwroot
+@inherits Microsoft.AspNetCore.Components.LayoutComponentBase
+@inject DarkModeService DarkModeService
+
+<MudThemeProvider @ref="@_mudThemeProvider" @bind-IsDarkMode="@_isDarkMode" Theme="MyCustomTheme"/>
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
 
 @Body
+
+
+
+
+@code
+{
+    public bool _isDarkMode;
+    private MudThemeProvider _mudThemeProvider;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _isDarkMode = await _mudThemeProvider.GetSystemPreference();
+            DarkModeService.ToggleDarkMode(_isDarkMode); 
+            StateHasChanged();
+        }
+    }
+    
+    MudTheme MyCustomTheme = new MudTheme()
+    {
+        PaletteLight = new PaletteLight()
+        {
+            Primary = "#44cdfa",
+            Secondary =  "#ffffff",
+            AppbarBackground = "#818181",
+        },
+        PaletteDark = new PaletteDark()
+        {
+            Primary = "#fcc98b",
+            Secondary = "#99a3b8",
+            AppbarBackground = "#13171f",
+        },
+
+        LayoutProperties = new LayoutProperties()
+        {
+            DrawerWidthLeft = "260px",
+            DrawerWidthRight = "300px"
+        }
+    };
+    
+    
+    
+}
 
