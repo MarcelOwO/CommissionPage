@@ -3,13 +3,11 @@
 @inject DarkModeService DarkModeService
 
 <MudThemeProvider @ref="@_mudThemeProvider" @bind-IsDarkMode="@_isDarkMode" Theme="MyCustomTheme"/>
-<MudPopoverProvider />
-<MudDialogProvider />
-<MudSnackbarProvider />
-
+<MudPopoverProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
 
 @Body
-
 
 
 
@@ -23,17 +21,17 @@
         if (firstRender)
         {
             _isDarkMode = await _mudThemeProvider.GetSystemPreference();
-            DarkModeService.ToggleDarkMode(_isDarkMode); 
+            DarkModeService.ToggleDarkMode(_isDarkMode);
             StateHasChanged();
         }
     }
-    
+
     MudTheme MyCustomTheme = new MudTheme()
     {
         PaletteLight = new PaletteLight()
         {
             Primary = "#44cdfa",
-            Secondary =  "#ffffff",
+            Secondary = "#ffffff",
             AppbarBackground = "#818181",
         },
         PaletteDark = new PaletteDark()
@@ -49,8 +47,6 @@
             DrawerWidthRight = "300px"
         }
     };
-    
-    
-    
-}
 
+
+}

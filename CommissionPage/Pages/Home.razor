@@ -9,7 +9,7 @@
 
     <MudPaper Class="pa-15 ma-10 d-flex" Elevation="3" flex-wrap-reverse gap-4>
         <MudStack Class="pa-3">
-            <MudText Size="3" Typo="Typo.h2">
+            <MudText Size="3" Typo="Typo.h2" Color="Color.Primary">
                 Avatar Commissions
             </MudText>
 
@@ -17,77 +17,83 @@
                 My username is MarcelOwO and I offer the service of Avatar Creation. I can do most servies from creating
                 new assets from scratch, texture new assets or add any assets to whatever avatar you want
             </MudText>
+            <MudText Typo="Typo.h5" Color="Color.Primary">Contact</MudText>
+            <MudStack Row="true">
+                
+                <MudButton StartIcon="@Icons.Custom.Brands.Discord" Color="Color.Primary">Discord</MudButton>
+                <MudButton StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Primary"> Github</MudButton>
+                <MudButton StartIcon="@Icons.Custom.Brands.Telegram" Color="Color.Primary">Telegram</MudButton>
+                <MudButton StartIcon="@Icons.Custom.Brands.Twitter" Color="Color.Primary">X</MudButton>
+            </MudStack>
         </MudStack>
         <MudImage Src="@SonaLink" Width="250" Class="rounded-lg ma-4"/>
     </MudPaper>
 
     <MudPaper Class="pa-15 ma-10" Elevation="3">
-        <MudStack>
-            <MudText Size="3"Typo="Typo.h3">
-                Example of my work
-            </MudText>
 
-            <MudGrid Spacing="3" Justify="Justify.Center">
-                <MudItem xs-6>
-                    <MudCarousel Class="mud-width-full" Style="height:350px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" TData="object">
-                        
-                        <MudCarouselItem Transition="Transition.Fade" Color="@Color.Primary">
-                            <MudStack>
-                                <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/1.png"/>
-                                <MudText> Complete Avatar Commission for ...</MudText>
-                            </MudStack>
-                        </MudCarouselItem>
+        <MudText Size="3"Typo="Typo.h3" Color="Color.Primary">
+            Example of my work
+        </MudText>
 
-                        <MudCarouselItem Transition="Transition.Fade" Color="@Color.Secondary">
-                            <div class="d-flex" style="height:100%">
-                                <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/2.png"/>
-                                <MudText>Complete Avatar Commission for ...</MudText>
-                            </div>
-                        </MudCarouselItem>
-                    </MudCarousel>
-                </MudItem>
-                <MudItem xs-6>
-                    <MudCarousel Class="mud-width-full" Style="height:350px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" TData="object">
-                        <MudCarouselItem Transition="Transition.Fade" Color="@Color.Primary">
-                            <div class="d-flex" style="height:100%">
-                                <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/1.png"/>
-                                <MudText>Complete Avatar Commission for ...</MudText>
-                            </div>
-                        </MudCarouselItem>
-                        <MudCarouselItem Transition="Transition.Fade" Color="@Color.Secondary">
-                            <div class="d-flex" style="height:100%">
-                                <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/2.png"/>
-                                <MudText>Complete Avatar Commission for ...</MudText>
-                            </div>
-                        </MudCarouselItem>
-                    </MudCarousel>
-                </MudItem>
-                <MudItem xs-6>
-                    <MudCarousel Class="mud-width-full" Style="height:350px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" TData="object">
-                        <MudCarouselItem Transition="Transition.Fade" Color="@Color.Primary">
-                            <div class="d-flex" style="height:100%">
-                                <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/1.png"/>
-                                <MudText>Complete Avatar Commission for ...</MudText>
-                            </div>
-                        </MudCarouselItem>
-                        <MudCarouselItem Transition="Transition.Fade" Color="@Color.Secondary">
-                            <div class="d-flex" style="height:100%">
-                                <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/2.png"/>
-                                <MudText>Complete Avatar Commission for ...</MudText>
-                            </div>
-                        </MudCarouselItem>
-                    </MudCarousel>
-                </MudItem>
-            </MudGrid>
-        </MudStack>
+        <MudGrid Justify="Justify.Center">
+            <MudItem xs-4 Class="d-flex align-center justify-center  ">
+                <MudCarousel Class="rounded-lg" Style="height:350px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" TData="object">
+                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Primary">
+                        <MudStack>
+                            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Class="ma-auto " Src="img/gallery/1.png"/>
+                            <MudText> Complete Avatar Commission for ...</MudText>
+                        </MudStack>
+                    </MudCarouselItem>
+
+                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Secondary">
+                        <div class="d-flex" style="height:100%">
+                            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Class="ma-auto my-auto rounded-lg" Src="img/gallery/2.png"/>
+                            <MudText>Complete Avatar Commission for ...</MudText>
+                        </div>
+                    </MudCarouselItem>
+                </MudCarousel>
+            </MudItem>
+            <MudItem xs-4 Class="d-flex align-center justify-center  ">
+                <MudCarousel  Style="height:350px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" TData="object">
+                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Primary">
+                        <div class="d-flex" style="height:100%">
+                            <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/1.png"/>
+                            <MudText>Complete Avatar Commission for ...</MudText>
+                        </div>
+                    </MudCarouselItem>
+                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Secondary">
+                        <div class="d-flex" style="height:100%">
+                            <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/2.png"/>
+                            <MudText>Complete Avatar Commission for ...</MudText>
+                        </div>
+                    </MudCarouselItem>
+                </MudCarousel>
+            </MudItem>
+            <MudItem xs-4 Class="d-flex align-center justify-center  ">
+                <MudCarousel  Style="height:350px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" TData="object">
+                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Primary">
+                        <div class="d-flex" style="height:100%">
+                            <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/1.png"/>
+                            <MudText>Complete Avatar Commission for ...</MudText>
+                        </div>
+                    </MudCarouselItem>
+                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Secondary">
+                        <div class="d-flex" style="height:100%">
+                            <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/2.png"/>
+                            <MudText>Complete Avatar Commission for ...</MudText>
+                        </div>
+                    </MudCarouselItem>
+                </MudCarousel>
+            </MudItem>
+        </MudGrid>
     </MudPaper>
 
     <MudPaper Class="pa-15 ma-10" Elevation="3">
-        <MudText Size="3">
+        <MudText Typo="Typo.h3">
             Prices
         </MudText>
 
-        <MudText>
+        <MudText Typo="Typo.body1">
             Prices vary depending on the complexity of the avatar, but in general the prices start around 100 Euros
             for a avatar setup for vrchat. Any assets that you would want me to add to the avatar would need to be
             provided by you. For custome assets it will depend on the complexity.
@@ -95,10 +101,10 @@
     </MudPaper>
 
     <MudPaper Class="pa-15 ma-10" Elevation="3">
-        <MudText Size="3">
+        <MudText Typo="Typo.h3">
             TOS
         </MudText>
-        <MudText>
+        <MudText Typo="Typo.body1">
             Payment is done via paypal. I will charge you before you will receive the model/assets. Since this a
             digital product I will not be able to refund you after you have received the product. If you have any
             issues with the product please contact me and I will try to resolve the issue. If you have any questions
@@ -121,6 +127,4 @@
     {
         DarkModeService.OnDarkModeChange -= StateHasChanged;
     }
-}
-
 }
