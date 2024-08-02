@@ -2,106 +2,114 @@
 
 @using CommissionPage.wwwroot
 @inject DarkModeService DarkModeService
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Home</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Large" Padding="Padding.Is5" Margin="Margin.IsAuto.OnX" Flex="Flex.AlignItems.Center.Column" Background="Background.Primary">
+    
+    <MudPaper id="paper1" Class="pa-15 ma-10 d-flex" Elevation="23" flex-wrap-reverse gap-4 Style="overflow: hidden">
 
-    <MudPaper Class="pa-15 ma-10 d-flex" Elevation="3" flex-wrap-reverse gap-4>
-        <MudStack Class="pa-3">
+        <MudStack Class="pa-3 d-flex">
             <MudText Size="3" Typo="Typo.h2" Color="Color.Primary">
                 Avatar Commissions
             </MudText>
 
             <MudText Typo="Typo.body1">
-                My username is MarcelOwO and I offer the service of Avatar Creation. I can do most servies from creating
-                new assets from scratch, texture new assets or add any assets to whatever avatar you want
+                Hi, I'm Marcel, a cs dev that loves to create 3d models. I have been creating various 3d models, shaders and avatars for a few years now. I have created a few avatars for myself and friends and I have decided to start taking commissions. If you are interested in getting a avatar for vrchat or any other platform please contact me. I will be happy to help you bring your sona in to the game.
             </MudText>
+
             <MudText Typo="Typo.h5" Color="Color.Primary">Contact</MudText>
+
             <MudStack Row="true">
-                
-                <MudButton StartIcon="@Icons.Custom.Brands.Discord" Color="Color.Primary">Discord</MudButton>
-                <MudButton StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Primary"> Github</MudButton>
-                <MudButton StartIcon="@Icons.Custom.Brands.Telegram" Color="Color.Primary">Telegram</MudButton>
-                <MudButton StartIcon="@Icons.Custom.Brands.Twitter" Color="Color.Primary">X</MudButton>
+                <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Discord" Color="Color.Primary">Discord</MudButton>
+                <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Primary"> Github</MudButton>
+                <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Telegram" Color="Color.Primary">Telegram</MudButton>
+                <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Twitter" Color="Color.Primary">X</MudButton>
             </MudStack>
         </MudStack>
-        <MudImage Src="@SonaLink" Width="250" Class="rounded-lg ma-4"/>
+
+        <MudImage Src="@SonaLink" ObjectFit="ObjectFit.Cover" Width="250" Class="rounded-lg ma-auto"/>
     </MudPaper>
 
-    <MudPaper Class="pa-15 ma-10" Elevation="3">
+    <MudPaper id="paper2" Class="pa-15 ma-10" Elevation="23" data-aos="zoom-out">
 
-        <MudText Size="3"Typo="Typo.h3" Color="Color.Primary">
-            Example of my work
+        <MudText Class="ma-4" Size="3"Typo="Typo.h3" Color="Color.Primary">
+            Examples of my work
         </MudText>
 
         <MudGrid Justify="Justify.Center">
             <MudItem xs-4 Class="d-flex align-center justify-center  ">
-                <MudCarousel Class="rounded-lg" Style="height:350px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" TData="object">
-                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Primary">
+                <MudCarousel Class="rounded-lg" Style="height:350px;width:300px" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" ItemsSource="@_imageList1">
+                    <ItemTemplate>
                         <MudStack>
-                            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Class="ma-auto " Src="img/gallery/1.png"/>
-                            <MudText> Complete Avatar Commission for ...</MudText>
+                            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Class="my-auto " Src="@context"/>
                         </MudStack>
-                    </MudCarouselItem>
+                    </ItemTemplate>
+                </MudCarousel>
+            </MudItem>
 
-                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Secondary">
-                        <div class="d-flex" style="height:100%">
-                            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Class="ma-auto my-auto rounded-lg" Src="img/gallery/2.png"/>
-                            <MudText>Complete Avatar Commission for ...</MudText>
-                        </div>
-                    </MudCarouselItem>
+            <MudItem xs-4 Class="d-flex align-center justify-center  ">
+                <MudCarousel Class="rounded-lg" Style="height:350px;width:300px" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" ItemsSource="@_imageList1">
+                    <ItemTemplate>
+                        <MudStack>
+                            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Class="my-auto " Src="@context"/>
+                        </MudStack>
+                    </ItemTemplate>
                 </MudCarousel>
             </MudItem>
             <MudItem xs-4 Class="d-flex align-center justify-center  ">
-                <MudCarousel  Style="height:350px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" TData="object">
-                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Primary">
-                        <div class="d-flex" style="height:100%">
-                            <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/1.png"/>
-                            <MudText>Complete Avatar Commission for ...</MudText>
-                        </div>
-                    </MudCarouselItem>
-                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Secondary">
-                        <div class="d-flex" style="height:100%">
-                            <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/2.png"/>
-                            <MudText>Complete Avatar Commission for ...</MudText>
-                        </div>
-                    </MudCarouselItem>
-                </MudCarousel>
-            </MudItem>
-            <MudItem xs-4 Class="d-flex align-center justify-center  ">
-                <MudCarousel  Style="height:350px;" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" TData="object">
-                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Primary">
-                        <div class="d-flex" style="height:100%">
-                            <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/1.png"/>
-                            <MudText>Complete Avatar Commission for ...</MudText>
-                        </div>
-                    </MudCarouselItem>
-                    <MudCarouselItem Transition="Transition.Fade" Color="@Color.Secondary">
-                        <div class="d-flex" style="height:100%">
-                            <MudImage ObjectFit="ObjectFit.Cover" Class="mx-auto my-auto rounded-lg" Src="img/gallery/2.png"/>
-                            <MudText>Complete Avatar Commission for ...</MudText>
-                        </div>
-                    </MudCarouselItem>
+                <MudCarousel Class="rounded-lg" Style="height:350px;width:300px" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" ItemsSource="@_imageList1">
+                    <ItemTemplate>
+                        <MudStack>
+                            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Class="my-auto " Src="@context"/>
+                        </MudStack>
+                    </ItemTemplate>
                 </MudCarousel>
             </MudItem>
         </MudGrid>
     </MudPaper>
 
-    <MudPaper Class="pa-15 ma-10" Elevation="3">
-        <MudText Typo="Typo.h3">
+    <MudPaper id="paper3" Class="pa-15 ma-10" Elevation="23" data-aos="fade">
+        <MudText Class="ma-4" Typo="Typo.h3" Color="Color.Primary">
             Prices
         </MudText>
 
         <MudText Typo="Typo.body1">
+
+
             Prices vary depending on the complexity of the avatar, but in general the prices start around 100 Euros
             for a avatar setup for vrchat. Any assets that you would want me to add to the avatar would need to be
             provided by you. For custome assets it will depend on the complexity.
         </MudText>
     </MudPaper>
 
-    <MudPaper Class="pa-15 ma-10" Elevation="3">
-        <MudText Typo="Typo.h3">
+    <MudPaper id="paper4" Class="pa-15 ma-10" Elevation="23">
+        <MudText Class="ma-4" Typo="Typo.h3" Color="Color.Primary">
+            Commission Process
+        </MudText>
+        <MudText Typo="Typo.body1">
+            <strong>Contact:</strong> You can reach out to me via Discord, GitHub, Telegram, or Twitter. Once we connect, we will discuss your requirements in detail.
+        </MudText>
+        <MudText Typo="Typo.body1">
+            <strong>Payment:</strong> Payment is done via PayPal. I will charge you before you receive the model/assets. Since this is a digital product, refunds are not available after delivery.
+        </MudText>
+        <MudText Typo="Typo.body1">
+            <strong>Delivery:</strong> After finalizing the details and receiving the payment, I will start working on your commission. The finished asset will be delivered to you via the agreed-upon method (e.g., email, file sharing service).
+        </MudText>
+        <MudText Typo="Typo.body1">
+            <strong>Revisions:</strong> If there are any issues or adjustments needed, I will work with you to ensure you are satisfied with the result. Minor revisions are included in the initial price.
+        </MudText>
+        <MudText Typo="Typo.body1">
+            <strong>Licensing:</strong> The final product is for personal use in VRChat. Redistribution or commercial use is not allowed without prior agreement.
+        </MudText>
+        <MudText Typo="Typo.body1">
+            <strong>Support:</strong> If you encounter any issues with the product, please contact me, and I will try to resolve the issue.
+        </MudText>
+    </MudPaper>
+
+    <MudPaper id="paper5" Class="pa-15 ma-10" Elevation="23" data-aos="zoom-out">
+        <MudText Class="ma-4" Typo="Typo.h3" Color="Color.Primary">
             TOS
         </MudText>
         <MudText Typo="Typo.body1">
@@ -112,11 +120,17 @@
         </MudText>
     </MudPaper>
 </MudContainer>
-
+<style>
+  
+</style>
 
 @code
 {
     private string SonaLink => DarkModeService.IsDarkMode ? "img/sona-dark.png" : "img/sona-light.png";
+
+    private readonly List<string> _imageList1 = ["img/gallery/1.png", "img/gallery/2.png", "img/gallery/3.jpg"];
+    private readonly List<string> _imageList2 = [];
+    private readonly List<string> _imageList3 = [];
 
     protected override void OnInitialized()
     {
@@ -126,5 +140,24 @@
     public void Dispose()
     {
         DarkModeService.OnDarkModeChange -= StateHasChanged;
+
+        _dotNetHelper?.Dispose();
     }
+
+    private DotNetObjectReference<Home>? _dotNetHelper;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _dotNetHelper = DotNetObjectReference.Create(this);
+            await JSRuntime.InvokeVoidAsync("detectScroll", "paper1", _dotNetHelper);
+            await JSRuntime.InvokeVoidAsync("detectScroll", "paper2", _dotNetHelper);
+            await JSRuntime.InvokeVoidAsync("detectScroll", "paper3", _dotNetHelper);
+            await JSRuntime.InvokeVoidAsync("detectScroll", "paper4", _dotNetHelper);
+            await JSRuntime.InvokeVoidAsync("detectScroll", "paper5", _dotNetHelper);
+        }
+    }
+
+
 }
