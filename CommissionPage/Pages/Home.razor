@@ -19,13 +19,13 @@
                 Hi, I'm Marcel, a cs dev that loves to create 3d models. I have been creating various 3d models, shaders and avatars for a few years now. I have created a few avatars for myself and friends and I have decided to start taking commissions. If you are interested in getting a avatar for vrchat or any other platform please contact me. I will be happy to help you bring your sona in to the game.
             </MudText>
 
-            <MudText Typo="Typo.h5" Color="Color.Primary">Contact</MudText>
+            <MudText Typo="Typo.h5" Color="Color.Primary">Contact:</MudText>
 
             <MudText Typo="Typo.body1">Discord: marcelsigl</MudText>
             <MudStack Row="true">
-                <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Primary"> Github</MudButton>
-                <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Telegram" Color="Color.Primary">Telegram</MudButton>
-                <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Twitter" Color="Color.Primary">X</MudButton>
+                <MudButton Href="https://github.com/MarcelOwO" Class="scale-up"  Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Primary"> Github</MudButton>
+                <MudButton Href="https://t.me/MarcelUwU" Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Telegram" Color="Color.Primary">Telegram</MudButton>
+                <MudButton Href="https://x.com/Marcel_Sigl"  Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Twitter" Color="Color.Primary">X</MudButton>
             </MudStack>
         </MudStack>
 
@@ -114,14 +114,11 @@
     <MudOverlay @bind-Visible="_overlayVisible" DarkBackground="true" AutoClose="true">
         <MudPaper Style="height: 90vh;width: 70vh" Class="rounded-lg">
             <MudStack>
-                <MudImage Elevation="23" Class="rounded-lg md-4" Src="@_overlayImageSrc" ObjectFit="ObjectFit.Contain"  Fluid/>
-
+                <MudImage Elevation="23" Class="rounded-lg  ma-4" Src="@_overlayImageSrc" ObjectFit="ObjectFit.Contain" Fluid/>
                 <MudText Class="text-center ma-4">
                     @GetText(_overlayImageSrc)
                 </MudText>
             </MudStack>
-
-
         </MudPaper>
     </MudOverlay>
 
@@ -134,17 +131,18 @@
 {
     private string GetText(string image) => image switch
     {
-        "img/gallery/1.png"=>"Custom texture commission of the kita'vali model",
-        "img/gallery/2.png"=>"Custom texture commission",
-        "img/gallery/3.jpg"=>"Custom texture on a slightly modified jerry'vali model",
-        "img/gallery/4.png"=>"Custom texture",
-        "img/gallery/5.png"=>"Custom modified rex with custom texture and using some assets from gumroad with a custom tail",
-        "img/gallery/6.png"=>"kitbash rex with hyenid hair, nkg protogen ears and the ghostly chestfluff",
-        "img/kitbash/robot-nanachi.png"=>"Modified zoichi model with some kitbash parts of other models",
-        "img/kitbash/snek.png"=>"kitbash model I created for a friend",
-        "img/kitbash/squid.png"=>"kitbash model of a rex with some tentacles",
-        "img/kitbash/thingy.png"=>"slight kitbash to change the body proportions of the model",
-        "img/custom/twitch.png" =>"simple twitch logo as a mesh",
+        "img/gallery/1.png" => "Custom texture commission of the kita'vali model",
+        "img/gallery/2.png" => "Custom texture commission",
+        "img/gallery/3.jpg" => "Custom texture on a slightly modified jerry'vali model",
+        "img/gallery/4.png" => "Custom texture",
+        "img/gallery/5.png" => "Custom modified rex with custom texture and using some assets from gumroad with a custom tail",
+        "img/gallery/6.png" => "kitbash rex with hyenid hair, nkg protogen ears and the ghostly chestfluff",
+        "img/kitbash/robot-nanachi.png" => "Modified zoichi model with some kitbash parts of other models",
+        "img/kitbash/snek.png" => "kitbash model I created for a friend",
+        "img/kitbash/squid.png" => "kitbash model of a rex with some tentacles",
+        "img/kitbash/thingy.png" => "slight kitbash to change the body proportions of the model",
+        "img/custom/twitch.png" => "simple twitch logo as a mesh",
+        "img/custom/tail.png" => "a tail I created for scottish_ripper",
         _ => "Error loading image"
     };
 
@@ -173,7 +171,7 @@
 
     private readonly List<string> _imageList1 = ["img/gallery/1.png", "img/gallery/2.png", "img/gallery/3.jpg", "img/gallery/4.png", "img/gallery/5.png", "img/gallery/6.png"];
     private readonly List<string> _imageList2 = ["img/kitbash/robot-nanachi.png", "img/kitbash/snek.png", "img/kitbash/squid.png", "img/kitbash/thingy.png"];
-    private readonly List<string> _imageList3 = ["img/custom/twitch.png"];
+    private readonly List<string> _imageList3 = ["img/custom/twitch.png", "img/custom/tail.png"];
 
     protected override void OnInitialized()
     {
