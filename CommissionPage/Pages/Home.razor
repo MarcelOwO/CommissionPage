@@ -1,31 +1,32 @@
 ﻿@page "/"
 
+@using System.Reflection.Metadata
 @using CommissionPage.wwwroot
 @inject DarkModeService DarkModeService
 @inject IJSRuntime JSRuntime
 
-<PageTitle>Home</PageTitle>
+<PageTitle>OwO</PageTitle>
 
-<MudContainer MaxWidth="MaxWidth.Large" >
+<MudContainer MaxWidth="MaxWidth.Large">
 
     <MudPaper id="paper1" Class="pa-15 ma-10 d-flex" Elevation="23" flex-wrap-reverse gap-4 Style="overflow: hidden">
 
         <MudStack Class="pa-3 d-flex">
-            <MudText Size="3" Typo="Typo.h2" Color="Color.Primary">
+            <MudText Typo="Typo.h2" Color="Color.Primary">
                 Avatar Commissions
             </MudText>
 
             <MudText Typo="Typo.body1">
-                Hi, I'm Marcel, a cs dev that loves to create 3d models. I have been creating various 3d models, shaders and avatars for a few years now. I have created a few avatars for myself and friends and I have decided to start taking commissions. If you are interested in getting a avatar for vrchat or any other platform please contact me. I will be happy to help you bring your sona in to the game.
+                Hi, I'm Marcel, a passionate CS developer specializing in creating avatars for VRChat. With several years of experience crafting 3D models, shaders, and avatars, I've developed unique creations for myself and friends. Now, I'm excited to offer my services through commissions. If you're looking for a custom avatar for VRChat or any other platform, please reach out. I'd love to help bring your character to life in the game.
             </MudText>
 
             <MudText Typo="Typo.h5" Color="Color.Primary">Contact:</MudText>
 
             <MudText Typo="Typo.body1">Discord: marcelsigl</MudText>
             <MudStack Row="true">
-                <MudButton Href="https://github.com/MarcelOwO" Class="scale-up"  Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Primary"> Github</MudButton>
+                <MudButton Href="https://github.com/MarcelOwO" Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Primary"> Github</MudButton>
                 <MudButton Href="https://t.me/MarcelUwU" Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Telegram" Color="Color.Primary">Telegram</MudButton>
-                <MudButton Href="https://x.com/Marcel_Sigl"  Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Twitter" Color="Color.Primary">X</MudButton>
+                <MudButton Href="https://x.com/Marcel_Sigl" Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Twitter" Color="Color.Primary">X</MudButton>
             </MudStack>
         </MudStack>
 
@@ -37,9 +38,50 @@
         </MudOverlay>
     </MudPaper>
 
-    <MudPaper id="paper2" Class="pa-15 ma-10" Elevation="23" data-aos="zoom-out">
+    <MudPaper id="paper2" Class="pa-15 ma-10" Elevation="23">
+        <MudText Class="ma-4" Typo="Typo.h3" Color="Color.Primary">
+            Expertise and Skills
+        </MudText>
 
-        <MudText Class="ma-4" Size="3"Typo="Typo.h3" Color="Color.Primary">
+        <MudText Typo="Typo.h5" Color="Color.Primary">Avatar Creation</MudText>
+        <MudText Typo="Typo.body1">
+            <ul>
+                <li>Avatar Creation for VRChat and Other Platforms: Skilled in developing avatars compatible with various platforms.</li>
+            </ul>
+        </MudText>
+
+        <MudText Typo="Typo.h5" Color="Color.Primary">3D Modeling</MudText>
+        <MudText Typo="Typo.body1">
+            <ul>
+                <li>Proficient in creating new meshes and performing kitbashes using existing models.</li>
+            </ul>
+        </MudText>
+
+        <MudText Typo="Typo.h5" Color="Color.Primary">Texturing</MudText>
+        <MudText Typo="Typo.body1">
+            <ul>
+                <li>Experienced with Substance Painter for detailed and high-quality textures.</li>
+            </ul>
+        </MudText>
+
+        <MudText Typo="Typo.h5" Color="Color.Primary">Shaders</MudText>
+        <MudText Typo="Typo.body1">
+            <ul>
+                <li>Capable of creating shaders, specifically for the BIRP (Built-in Render Pipeline).</li>
+            </ul>
+        </MudText>
+
+        <MudText Typo="Typo.h5" Color="Color.Primary">Systems for Avatars</MudText>
+        <MudText Typo="Typo.body1">
+            <ul>
+                <li>Able to develop custom systems to enhance avatar functionality.</li>
+            </ul>
+        </MudText>
+    </MudPaper>
+
+    <MudPaper id="paper3" Class="pa-15 ma-10" Elevation="23">
+
+        <MudText Class="ma-4" Typo="Typo.h3" Color="Color.Primary">
             Examples of my work
         </MudText>
 
@@ -75,8 +117,8 @@
         </MudGrid>
     </MudPaper>
 
-    <MudPaper id="paper3" Class="pa-15 ma-10" Elevation="23" data-aos="fade">
-        <MudText Class="ma-4" Typo="Typo.h3" Color="Color.Primary">
+    <MudPaper id="paper4" Class="pa-15 ma-10" Elevation="23">
+       <MudText Class="ma-4" Typo="Typo.h3" Color="Color.Primary">
             Prices
         </MudText>
 
@@ -87,8 +129,8 @@
         </MudText>
     </MudPaper>
 
-    <MudPaper id="paper4" Class="pa-15 ma-10" Elevation="23">
-        <MudText Class="ma-4" Typo="Typo.h3" Color="Color.Primary">
+    <MudPaper id="paper5" Class="pa-15 ma-10" Elevation="23">
+       <MudText Class="ma-4" Typo="Typo.h3" Color="Color.Primary">
             Commission Process
         </MudText>
         <MudText Typo="Typo.body1">
@@ -123,27 +165,31 @@
     </MudOverlay>
 
 </MudContainer>
-<style>
-  
-</style>
+
 
 @code
 {
-    private string GetText(string image) => image switch
+    private string GetText(string image)
     {
-        "img/gallery/1.png" => "Custom texture commission of the kita'vali model",
-        "img/gallery/2.png" => "Custom texture commission",
-        "img/gallery/3.jpg" => "Custom texture on a slightly modified jerry'vali model",
-        "img/gallery/4.png" => "Custom texture",
-        "img/gallery/5.png" => "Custom modified rex with custom texture and using some assets from gumroad with a custom tail",
-        "img/gallery/6.png" => "kitbash rex with hyenid hair, nkg protogen ears and the ghostly chestfluff",
-        "img/kitbash/robot-nanachi.png" => "Modified zoichi model with some kitbash parts of other models",
-        "img/kitbash/snek.png" => "kitbash model I created for a friend",
-        "img/kitbash/squid.png" => "kitbash model of a rex with some tentacles",
-        "img/kitbash/thingy.png" => "slight kitbash to change the body proportions of the model",
-        "img/custom/twitch.png" => "simple twitch logo as a mesh",
-        "img/custom/tail.png" => "a tail I created for scottish_ripper",
-        _ => "Error loading image"
+        if (!_textDictionary.TryGetValue(image, out string text))
+            return "No description available";
+        return text;
+    }
+
+    private readonly Dictionary<string, string> _textDictionary = new Dictionary<string, string>()
+    {
+        { "img/gallery/1.png", "Custom texture commission of the kita'vali model" },
+        { "img/gallery/2.png", "Custom texture commission" },
+        { "img/gallery/3.jpg", "Custom texture on a slightly modified jerry'vali model" },
+        { "img/gallery/4.png", "Custom texture" },
+        { "img/gallery/5.png", "Custom modified rex with custom texture and using some assets from gumroad with a custom tail" },
+        { "img/gallery/6.png", "kitbash rex with hyenid hair, nkg protogen ears and the ghostly chestfluff" },
+        { "img/kitbash/robot-nanachi.png", "Modified zoichi model with some kitbash parts of other models" },
+        { "img/kitbash/snek.png", "kitbash model I created for a friend" },
+        { "img/kitbash/squid.png", "kitbash model of a rex with some tentacles" },
+        { "img/kitbash/thingy.png", "slight kitbash to change the body proportions of the model" },
+        { "img/custom/twitch.png", "simple twitch logo as a mesh" },
+        { "img/custom/tail.png", "a tail I created for scottish_ripper" },
     };
 
 
@@ -196,6 +242,7 @@
             await JSRuntime.InvokeVoidAsync("detectScroll", "paper2", _dotNetHelper);
             await JSRuntime.InvokeVoidAsync("detectScroll", "paper3", _dotNetHelper);
             await JSRuntime.InvokeVoidAsync("detectScroll", "paper4", _dotNetHelper);
+            await JSRuntime.InvokeVoidAsync("detectScroll", "paper5", _dotNetHelper);
         }
     }
 
