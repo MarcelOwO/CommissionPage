@@ -7,7 +7,7 @@
 <PageTitle>Home</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Large" Padding="Padding.Is5" Margin="Margin.IsAuto.OnX" Flex="Flex.AlignItems.Center.Column" Background="Background.Primary">
-    
+
     <MudPaper id="paper1" Class="pa-15 ma-10 d-flex" Elevation="23" flex-wrap-reverse gap-4 Style="overflow: hidden">
 
         <MudStack Class="pa-3 d-flex">
@@ -21,15 +21,20 @@
 
             <MudText Typo="Typo.h5" Color="Color.Primary">Contact</MudText>
 
+            <MudText Typo="Typo.body1">Discord: marcelsigl</MudText>
             <MudStack Row="true">
-                <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Discord" Color="Color.Primary">Discord</MudButton>
                 <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Primary"> Github</MudButton>
                 <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Telegram" Color="Color.Primary">Telegram</MudButton>
                 <MudButton Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Twitter" Color="Color.Primary">X</MudButton>
             </MudStack>
         </MudStack>
 
-        <MudImage Src="@SonaLink" ObjectFit="ObjectFit.Cover" Width="250" Class="rounded-lg ma-auto"/>
+        <MudButton Style="width: 750px;height: 250px" OnClick="OpenOverlay" Class="rounded-lg ma-auto">
+            <MudImage Src="@SonaLink" ObjectFit="ObjectFit.Cover" Width="250"/>
+        </MudButton>
+        <MudOverlay @bind-Visible="_visible" DarkBackground AutoClose="true">
+            <MudImage Src="@SonaLink" Class="rounded-lg ma-auto" ObjectFit="ObjectFit.Cover"/>
+        </MudOverlay>
     </MudPaper>
 
     <MudPaper id="paper2" Class="pa-15 ma-10" Elevation="23" data-aos="zoom-out">
@@ -39,31 +44,31 @@
         </MudText>
 
         <MudGrid Justify="Justify.Center">
-            <MudItem xs-4 Class="d-flex align-center justify-center  ">
-                <MudCarousel Class="rounded-lg" Style="height:350px;width:300px" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" ItemsSource="@_imageList1">
+            <MudItem xs-4 Class="d-flex  justify-center">
+                <MudCarousel Class="rounded-lg" Style="height:350px;width:300px" ShowArrows="true" ShowBullets="false" EnableSwipeGesture="true" AutoCycle="true" ItemsSource="@_imageList1">
                     <ItemTemplate>
-                        <MudStack>
-                            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Class="my-auto " Src="@context"/>
-                        </MudStack>
+                        <MudButton ObjectPosition="ObjectPosition.Center" Style="height: 100%;width: 100%;object-fit: contain" OnClick="() => OpenImageOverlay(context)">
+                            <MudImage Style="width: 110%;height: 110%" ObjectFit="ObjectFit.Contain" Src="@context"/>
+                        </MudButton>
                     </ItemTemplate>
                 </MudCarousel>
             </MudItem>
 
-            <MudItem xs-4 Class="d-flex align-center justify-center  ">
-                <MudCarousel Class="rounded-lg" Style="height:350px;width:300px" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" ItemsSource="@_imageList1">
+            <MudItem xs-4 Class="d-flex  justify-center">
+                <MudCarousel Class="rounded-lg" Style="height:350px;width:300px" ShowArrows="true" ShowBullets="false" EnableSwipeGesture="true" AutoCycle="true" ItemsSource="@_imageList2">
                     <ItemTemplate>
-                        <MudStack>
-                            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Class="my-auto " Src="@context"/>
-                        </MudStack>
+                        <MudButton ObjectPosition="ObjectPosition.Center" Style="height: 100%;width: 100%;object-fit: contain" OnClick="() => OpenImageOverlay(context)">
+                            <MudImage Style="width: 110%;height: 110%" ObjectFit="ObjectFit.Contain" Src="@context"/>
+                        </MudButton>
                     </ItemTemplate>
                 </MudCarousel>
             </MudItem>
-            <MudItem xs-4 Class="d-flex align-center justify-center  ">
-                <MudCarousel Class="rounded-lg" Style="height:350px;width:300px" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" ItemsSource="@_imageList1">
+            <MudItem xs-4 Class="d-flex  justify-center">
+                <MudCarousel Class="rounded-lg" Style="height:350px;width:300px" ShowArrows="true" ShowBullets="false" EnableSwipeGesture="true" AutoCycle="true" ItemsSource="@_imageList3">
                     <ItemTemplate>
-                        <MudStack>
-                            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Class="my-auto " Src="@context"/>
-                        </MudStack>
+                        <MudButton ObjectPosition="ObjectPosition.Center" Style="height: 100%;width: 100%;object-fit: contain" OnClick="() => OpenImageOverlay(context)">
+                            <MudImage Style="width: 110%;height: 110%" ObjectFit="ObjectFit.Contain" Src="@context"/>
+                        </MudButton>
                     </ItemTemplate>
                 </MudCarousel>
             </MudItem>
@@ -76,8 +81,6 @@
         </MudText>
 
         <MudText Typo="Typo.body1">
-
-
             Prices vary depending on the complexity of the avatar, but in general the prices start around 100 Euros
             for a avatar setup for vrchat. Any assets that you would want me to add to the avatar would need to be
             provided by you. For custome assets it will depend on the complexity.
@@ -119,6 +122,21 @@
             about the TOS please contact me.
         </MudText>
     </MudPaper>
+
+    <MudOverlay @bind-Visible="_overlayVisible" DarkBackground="true" AutoClose="true">
+        <MudPaper Style="height: 90vh;width: 70vh" Class="rounded-lg">
+            <MudStack>
+                <MudImage Elevation="23" Class="rounded-lg md-4" Src="@_overlayImageSrc" ObjectFit="ObjectFit.Contain"  Fluid/>
+
+                <MudText Class="text-center ma-4">
+                    @GetText(_overlayImageSrc)
+                </MudText>
+            </MudStack>
+
+
+        </MudPaper>
+    </MudOverlay>
+
 </MudContainer>
 <style>
   
@@ -126,11 +144,48 @@
 
 @code
 {
+    private string GetText(string image) => image switch
+    {
+        "img/gallery/1.png"=>"Custom texture commission of the kita'vali model",
+        "img/gallery/2.png"=>"Custom texture commission",
+        "img/gallery/3.jpg"=>"Custom texture on a slightly modified jerry'vali model",
+        "img/gallery/4.png"=>"Custom texture",
+        "img/gallery/5.png"=>"Custom modified rex with custom texture and using some assets from gumroad with a custom tail",
+        "img/gallery/6.png"=>"kitbash rex with hyenid hair, nkg protogen ears and the ghostly chestfluff",
+        "img/kitbash/robot-nanachi.png"=>"Modified zoichi model with some kitbash parts of other models",
+        "img/kitbash/snek.png"=>"kitbash model I created for a friend",
+        "img/kitbash/squid.png"=>"kitbash model of a rex with some tentacles",
+        "img/kitbash/thingy.png"=>"slight kitbash to change the body proportions of the model",
+        "img/custom/twitch.png" =>"simple twitch logo as a mesh",
+        _ => "Error loading image"
+    };
+
+
+    private bool _overlayVisible = false;
+    private static string _overlayImageSrc = string.Empty;
+
+    private void OpenImageOverlay(string imageSrc)
+    {
+        if (string.IsNullOrEmpty(imageSrc)) return;
+
+        _overlayImageSrc = imageSrc;
+        _overlayVisible = true;
+        StateHasChanged();
+    }
+
+    private bool _visible = false;
+
+    public void OpenOverlay()
+    {
+        _visible = true;
+        StateHasChanged();
+    }
+
     private string SonaLink => DarkModeService.IsDarkMode ? "img/sona-dark.png" : "img/sona-light.png";
 
-    private readonly List<string> _imageList1 = ["img/gallery/1.png", "img/gallery/2.png", "img/gallery/3.jpg"];
-    private readonly List<string> _imageList2 = [];
-    private readonly List<string> _imageList3 = [];
+    private readonly List<string> _imageList1 = ["img/gallery/1.png", "img/gallery/2.png", "img/gallery/3.jpg", "img/gallery/4.png", "img/gallery/5.png", "img/gallery/6.png"];
+    private readonly List<string> _imageList2 = ["img/kitbash/robot-nanachi.png", "img/kitbash/snek.png", "img/kitbash/squid.png", "img/kitbash/thingy.png"];
+    private readonly List<string> _imageList3 = ["img/custom/twitch.png"];
 
     protected override void OnInitialized()
     {
