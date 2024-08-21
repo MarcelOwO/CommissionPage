@@ -1,6 +1,5 @@
 ﻿@page "/"
 
-@using System.Reflection.Metadata
 @using CommissionPage.wwwroot
 @inject DarkModeService DarkModeService
 @inject IJSRuntime JSRuntime
@@ -17,12 +16,14 @@
             </MudText>
 
             <MudText Typo="Typo.body1">
-                Hi, I'm Marcel, I have been playing vrchat since 2020 and been creating avatars since then. I since then worked on various ideas that came to mind and done some commssions for friends. Anyway if you are interested in a custom avatar and you like the style of my work contact me preferably on discord or any of the other platforms mentioned below.
+                Hi, I'm Marcel, I have been playing VRChat since 2020 and have since then worked on avatar creation.
+                I have mostly worked on personal projects or smaller commissions.
+                Anyway if you are interested in a custom avatar and you like the style of my work contact me preferably on discord or any of the other platforms mentioned below.
             </MudText>
 
             <MudText Typo="Typo.h5" Color="Color.Primary">Contact:</MudText>
 
-            <MudText Typo="Typo.body1">Discord: marcelsigl</MudText>
+            <MudText Typo="Typo.body1" Color="Color.Primary">Discord: marcelsigl</MudText>
             <MudStack Row="true">
                 <MudButton Href="https://github.com/MarcelOwO" Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Primary"> Github</MudButton>
                 <MudButton Href="https://t.me/MarcelUwU" Class="scale-up" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.Telegram" Color="Color.Primary">Telegram</MudButton>
@@ -83,30 +84,32 @@
             Avatar Creation:
         </MudText>
         <MudText Typo="Typo.body1">
-            I have already created models for platforms like VRChat, CVR and other platforms. But I'm mostly experienced with VRChat avatars.
+            I have already created models for platforms like VRChat, CVR and other platforms. But I'm mostly experienced with VRChat.
         </MudText>
 
         <MudText Typo="Typo.h5" Color="Color.Primary">
             3D Modeling:
         </MudText>
         <MudText Typo="Typo.body1">
-            I'm experienced in Blender and have used a bit of ZBrush in the past and am mostly used to creating kitbashes of models but I can also create some simpler custom models. However, my experience with complex and models and sculpting is limited.
+            I'm experienced in Blender and a bit of ZBrush.
+            The models I usually create are kitbashes but I can also create simpler custom models if needed and I have created clothing in smaller accessories in the past.
+            Though I am not very experienced with sculpting.
         </MudText>
 
         <MudText Typo="Typo.h5" Color="Color.Primary">Texturing:</MudText>
         <MudText Typo="Typo.body1">
-            Probably the application I'm most experienced with, though I'm not that great with coming up with own designs.
+            Probably the area I'm most experienced with, though I'm not that with coming up with custom designs.
         </MudText>
 
         <MudText Typo="Typo.h5" Color="Color.Primary">Shaders:</MudText>
         <MudText Typo="Typo.body1">
-            I have worked on some simple shaders in the past like simple fire shaders that are applied on the uv of the mesh written in hlsl and i have some experience with amplify.
+            I have worked on some simple shaders in the past like simple fire shaders that are applied on the uv of the mesh written in hlsl and I have some experience with amplify.
         </MudText>
 
         <MudText Typo="Typo.h5" Color="Color.Primary">Systems for Avatars:</MudText>
         <MudText Typo="Typo.body1">
-            I can add various systems to your avatars like vrchat-facetracking, world-constraints or other systems that you can come up with.
-            If you want I could also make some kind of osc application.
+            I have worked with various vrchat systems in the past, be it facetracking, complex constrains setups or osc applications.
+            I am also a .net developer so I can create those if you are interested.
         </MudText>
     </MudPaper>
 
@@ -117,7 +120,7 @@
         </MudText>
 
         <MudText Typo="Typo.body1">
-            Prices start around 100 Euro for a simple complete avatar setup for vrchat with a very simple texture. For any other assets or feature it would depend on the complexity and the required time it would require me.
+            The price for any avatar usually starts around 100 Euro and for anything more complex I would charge an hourly rate of about 15 Euro per hour.
         </MudText>
     </MudPaper>
 
@@ -137,21 +140,33 @@
             Payment:
         </MudText>
         <MudText>
-            Payment is done via PayPal and I will send you the charge. After I have received the payment I will then send you all the assets for you models and packages.
+            Payment is done via PayPal and I will send you the charge after I am finished with the avatar.
+            Also I do not give refunds since I only offer digital goods and services.
         </MudText>
 
         <MudText Typo="Typo.h5" Color="Color.Primary">
             Delivery:
         </MudText>
         <MudText Typo="Typo.body1">
-            After the payment I will send you all the assets and packages and if you want I can also upload you avatar to you account.
+            After I have received the payment I will send you the unitypackagr and if you want I can also upload the avatar to your account.
         </MudText>
 
         <MudText Typo="Typo.h5" Color="Color.Primary">
             Revisions:
         </MudText>
         <MudText Typo="Typo.body1">
-            If you find anything that you change or something that you don't like, just let me know and I try to update it asap. Though places don't ask for any changes after like a month of receiving the models.
+            If you find anything that you want changed or something that you don't like, just let me know and I try to update it asap.
+            Though please don't ask for any changes after a month of receiving the models.
+        </MudText>
+    </MudPaper>
+    <MudPaper id="paper6" Class="pa-15 ma-10" Elevation="23">
+        <MudText Class="ma-4" Typo="Typo.h3" Color="Color.Primary">
+           TOS 
+        </MudText>
+
+        <MudText Typo="Typo.body1">
+            Just a general reminder that I only offer digital goods and services and I do not give refunds.
+            You are allowed to use my work for personal use but you are not allowed to resell it or use it for commercial purposes.
         </MudText>
     </MudPaper>
 
@@ -181,20 +196,20 @@
     private readonly Dictionary<string, string> _textDictionary = new Dictionary<string, string>()
     {
         { "img/gallery/1.png", "Custom texture commission of the kita'vali model" },
-        { "img/gallery/2.png", "Custom texture commission" },
-        { "img/gallery/3.jpg", "Custom texture on a slightly modified jerry'vali model" },
-        { "img/gallery/4.png", "Custom texture" },
+        { "img/gallery/2.png", "avatar commission i Have done in the past with a custom texture and some extra toggles and clothing " },
+        { "img/gallery/3.jpg", "My personal jerry'vali avatar. It has a custom texture with the design from angiewolf. I have also added some custom clothing, flying system, invisibility and dps" },
+        { "img/gallery/4.png", "Custom texture I wanted to created based on a design I have seem on a Wickerbeast. It took me about 20h to draw all the details." },
         { "img/gallery/5.png", "Custom modified rex with custom texture and using some assets from gumroad with a custom tail" },
         { "img/gallery/6.png", "kitbash rex with hyenid hair, nkg protogen ears and the ghostly chestfluff" },
         { "img/kitbash/robot-nanachi.png", "Modified zoichi model with some kitbash parts of other models" },
-        { "img/kitbash/snek.png", "kitbash model I created for a friend" },
+        { "img/kitbash/snek.png", "kitbash model I created as a commission for a friend" },
         { "img/kitbash/squid.png", "kitbash model of a rex with some tentacles" },
         { "img/kitbash/thingy.png", "slight kitbash to change the body proportions of the model" },
         { "img/custom/twitch.png", "simple twitch logo as a mesh" },
         { "img/custom/tail.png", "a tail I created for scottish_ripper" },
         { "img/kitbash/cloth.png", "simple cloth and gold based outfit I mode for myself" },
         { "img/kitbash/crystal.png", "crystal and gold based outfit I mode for myself" },
-        { "img/kitbash/proto.png", "small kitbash project I have done to see if it would look nice" },
+        { "img/kitbash/proto.png", "small kitbash project I have done to see how well the protogen part would look on a rex." },
         { "img/custom/colar.png", "a collor I have created for a friend" },
     };
 
@@ -219,7 +234,7 @@
         StateHasChanged();
     }
 
-    private string SonaLink => DarkModeService.IsDarkMode ? "img/sona-dark.png" : "img/sona-light.png";
+    private string SonaLink { get; set; } = string.Empty;
 
     private readonly List<string> _imageList1 = ["img/gallery/1.png", "img/gallery/2.png", "img/gallery/3.jpg", "img/gallery/4.png", "img/gallery/5.png", "img/gallery/6.png"];
     private readonly List<string> _imageList2 = ["img/kitbash/robot-nanachi.png", "img/kitbash/snek.png", "img/kitbash/squid.png", "img/kitbash/thingy.png", "img/kitbash/cloth.png", "img/kitbash/proto.png", "img/kitbash/proto.png",];
@@ -227,14 +242,22 @@
 
     protected override void OnInitialized()
     {
-        DarkModeService.OnDarkModeChange += StateHasChanged;
+        SonaLink = DarkModeService.IsDarkMode ? "img/sona-dark.png" : "img/sona-light.png";
+
+        DarkModeService.OnDarkModeChange += OnChange;
     }
 
     public void Dispose()
     {
-        DarkModeService.OnDarkModeChange -= StateHasChanged;
+        DarkModeService.OnDarkModeChange -= OnChange;
 
         _dotNetHelper?.Dispose();
+    }
+
+    private void OnChange()
+    {
+        SonaLink = DarkModeService.IsDarkMode ? "img/sona-dark.png" : "img/sona-light.png";
+        StateHasChanged();
     }
 
     private DotNetObjectReference<Home>? _dotNetHelper;
@@ -249,6 +272,7 @@
             await JSRuntime.InvokeVoidAsync("detectScroll", "paper3", _dotNetHelper);
             await JSRuntime.InvokeVoidAsync("detectScroll", "paper4", _dotNetHelper);
             await JSRuntime.InvokeVoidAsync("detectScroll", "paper5", _dotNetHelper);
+            await JSRuntime.InvokeVoidAsync("detectScroll", "paper6", _dotNetHelper);
         }
     }
 
